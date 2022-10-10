@@ -164,6 +164,20 @@ const generateLayout = (requiredNoOfSeats = 1, selectFrom = 'left') => {
                             subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
                             subrowComplete = false;
                         }
+                        subWorkStationData.partition.forEach((gap) => {
+                            if ((subWorkStationData.selectedAreaXAxis > (gap.startingPosition - 1)) && (subWorkStationData.selectedAreaXAxis < (gap.startingPosition + 1))) {
+                                subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
+                                doc.polygon(
+                                    [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis],
+                                    [subWorkStationData.selectedAreaXAxis + gap.width, subWorkStationData.selectedAreaYAxis],
+                                    [subWorkStationData.selectedAreaXAxis + gap.width, subWorkStationData.selectedAreaYAxis + gap.height],
+                                    [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis + gap.height]
+                                ).fillOpacity(0.4).fill("red");
+                                rowComplete = false;
+                                subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
+                                subWorkStationData.selectedAreaXAxis += gap.width;
+                            }
+                        });
                         subWorkStationData.gapPosition.forEach((gap) => {
                             if ((subWorkStationData.selectedAreaXAxis > (gap.startingPositon - 1)) && (subWorkStationData.selectedAreaXAxis < (gap.startingPositon + 1))) {
                                 subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
@@ -176,6 +190,20 @@ const generateLayout = (requiredNoOfSeats = 1, selectFrom = 'left') => {
                                 rowComplete = false;
                                 subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
                                 subWorkStationData.selectedAreaXAxis += gap.pillarWidth;
+                            }
+                        });
+                        subWorkStationData.partition.forEach((gap) => {
+                            if ((subWorkStationData.selectedAreaXAxis > (gap.startingPosition - 1)) && (subWorkStationData.selectedAreaXAxis < (gap.startingPosition + 1))) {
+                                subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
+                                doc.polygon(
+                                    [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis],
+                                    [subWorkStationData.selectedAreaXAxis + gap.width, subWorkStationData.selectedAreaYAxis],
+                                    [subWorkStationData.selectedAreaXAxis + gap.width, subWorkStationData.selectedAreaYAxis + gap.height],
+                                    [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis + gap.height]
+                                ).fillOpacity(0.4).fill("red");
+                                rowComplete = false;
+                                subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
+                                subWorkStationData.selectedAreaXAxis += gap.width;
                             }
                         });
                         subWorkStationData.pillarPosition.forEach((pillar) => {
