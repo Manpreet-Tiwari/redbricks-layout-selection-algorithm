@@ -38,7 +38,6 @@ const generateLayout = (requiredNoOfSeats = 1, selectFrom = 'left') => {
                     workStationData.selectedAreaYAxis = workStationData.startingYAxis;
                     rowComplete = false;
                 }
-
                 workStationData.pillarPosition.forEach((pillar) => {
                     if (
                         (workStationData.selectedAreaXAxis > (pillar.startingXPosition - 1)) &&
