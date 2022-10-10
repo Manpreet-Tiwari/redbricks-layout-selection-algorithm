@@ -1,0 +1,20 @@
+{
+  "name": "pdf-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test5.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon test5.js"
+  },
+  "author": "Manprit Tiwari",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.2",
+    "pdfkit": "^0.13.0"
+  }
+}

@@ -1,0 +1,70 @@
+{
+    "layout": "layout.png",
+    "workstations":[
+        {
+            "_id": 2,
+            "outline": [[56, 272], [866, 272], [866, 506], [56, 506]],
+            "startingXAxis": 56,
+            "startingYAxis": 272,
+            "AvailableNoOfSeats": 363,
+            "lastYAxis": 506,
+            "noOfSeatsInRow": 11,
+            "sizeOfSeat": {
+                "width": 19.25,
+                "height": 21.36
+            },
+            "selectedAreaXAxis": 56,
+            "selectedAreaYAxis":272,
+            "gapPosition": [
+                {
+                    "pillar": true,
+                    "startingPositon": 133,
+                    "pillarWidth": 26.25,
+                    "pillarHeight": 235
+                },
+                {
+                    "pillar": true,
+                    "startingPositon": 236,
+                    "pillarWidth": 26.25,
+                    "pillarHeight": 235
+                },
+                {
+                    "pillar": false,
+                    "startingPositon": 358,
+                    "pillarWidth": 19.25,
+                    "pillarHeight": 235
+                },
+                {
+                    "pillar": false,
+                    "startingPositon": 455,
+                    "pillarWidth": 19.25,
+                    "pillarHeight": 235
+                },
+                {
+                    "pillar": true,
+                    "startingPositon": 512,
+                    "pillarWidth": 24.25,
+                    "pillarHeight": 235
+                },
+                {
+                    "pillar": true,
+                    "startingPositon": 653,
+                    "pillarWidth": 24.25,
+                    "pillarHeight": 235
+                },
+                {
+                    "pillar": false,
+                    "startingPositon": 716,
+                    "pillarWidth": 19.25,
+                    "pillarHeight": 235
+                },
+                {
+                    "pillar": false,
+                    "startingPositon": 831,
+                    "pillarWidth": 15.25,
+                    "pillarHeight": 235
+                }
+            ]
+        }
+    ]
+}
