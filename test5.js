@@ -224,17 +224,21 @@ const generateLayout = (requiredNoOfSeats = 1, selectFrom = 'left') => {
                                 subWorkStationData.selectedAreaYAxis += pillar.pillarHeight;
                             }
                         })
-                        if (subrowComplete === true) {
-                            subWorkStationData.selectedAreaXAxis += subWorkStationData.sizeOfSeat.width;
-                            subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
-                            subrowComplete = false;
+                        if ((subWorkStationData.selectedAreaYAxis > (subWorkStationData.lastYAxis - 1)) && (subWorkStationData.selectedAreaYAxis < (subWorkStationData.lastYAxis + 1))) {
+                            subrowComplete = true;
                         }
-                        doc.polygon(
-                            [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis],
-                            [subWorkStationData.selectedAreaXAxis + subWorkStationData.sizeOfSeat.width, subWorkStationData.selectedAreaYAxis],
-                            [subWorkStationData.selectedAreaXAxis + subWorkStationData.sizeOfSeat.width, subWorkStationData.selectedAreaYAxis + subWorkStationData.sizeOfSeat.height],
-                            [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis + subWorkStationData.sizeOfSeat.height]
-                        ).fillOpacity(0.4).lineWidth(0.2).stroke('red');
+                        if (subrowComplete === true) {
+                            j--;
+                            i--;
+                        }
+                        else {
+                            doc.polygon(
+                                [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis],
+                                [subWorkStationData.selectedAreaXAxis + subWorkStationData.sizeOfSeat.width, subWorkStationData.selectedAreaYAxis],
+                                [subWorkStationData.selectedAreaXAxis + subWorkStationData.sizeOfSeat.width, subWorkStationData.selectedAreaYAxis + subWorkStationData.sizeOfSeat.height],
+                                [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis + subWorkStationData.sizeOfSeat.height]
+                            ).fillOpacity(0.4).lineWidth(0.2).stroke('red');
+                        }
                         subWorkStationData.selectedAreaYAxis += subWorkStationData.sizeOfSeat.height;
                         console.log('yAxis::', subWorkStationData.selectedAreaYAxis)
                         if ((subWorkStationData.selectedAreaYAxis > (subWorkStationData.lastYAxis - 1)) && (subWorkStationData.selectedAreaYAxis < (subWorkStationData.lastYAxis + 1))) {
