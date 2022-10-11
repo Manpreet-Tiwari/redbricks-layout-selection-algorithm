@@ -201,7 +201,7 @@ const generateLayout = (requiredNoOfSeats = 1, selectFrom = 'left') => {
                                     [subWorkStationData.selectedAreaXAxis + gap.width, subWorkStationData.selectedAreaYAxis + gap.height],
                                     [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis + gap.height]
                                 ).fillOpacity(0.4).fill("red");
-                                rowComplete = false;
+                                subrowComplete = false;
                                 subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
                                 subWorkStationData.selectedAreaXAxis += gap.width;
                             }
@@ -224,6 +224,11 @@ const generateLayout = (requiredNoOfSeats = 1, selectFrom = 'left') => {
                                 subWorkStationData.selectedAreaYAxis += pillar.pillarHeight;
                             }
                         })
+                        if (subrowComplete === true) {
+                            subWorkStationData.selectedAreaXAxis += subWorkStationData.sizeOfSeat.width;
+                            subWorkStationData.selectedAreaYAxis = subWorkStationData.startingYAxis;
+                            subrowComplete = false;
+                        }
                         doc.polygon(
                             [subWorkStationData.selectedAreaXAxis, subWorkStationData.selectedAreaYAxis],
                             [subWorkStationData.selectedAreaXAxis + subWorkStationData.sizeOfSeat.width, subWorkStationData.selectedAreaYAxis],
